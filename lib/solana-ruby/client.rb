@@ -536,11 +536,17 @@ module SolanaRB
       }
       body[:params] = params if params
 
+      if method == "sendTransaction" ## TO REMOVE
+        transaction_string = body[:params][0].delete('"')
+        body[:params][0] = transaction_string
+      end
+
       options = {
         headers: { 'Content-Type' => 'application/json' },
         body: body.to_json
       }
 
+      puts body.to_json
       response = self.class.post('/', options)
       handle_response(response)
     end

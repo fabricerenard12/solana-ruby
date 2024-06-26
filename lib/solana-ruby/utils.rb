@@ -4,6 +4,9 @@ require 'base64'
 module SolanaRB
   module Utils
     SYSTEM_PROGRAM_ID = '11111111111111111111111111111111'.freeze
+    MAINNET = ''.freeze
+    DEVNET = ''.freeze
+    TESTNET = ''.freeze
 
     def self.base58_encode(bytes)
       Base58.binary_to_base58(bytes, :bitcoin)

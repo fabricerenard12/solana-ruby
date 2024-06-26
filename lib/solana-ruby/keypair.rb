@@ -85,23 +85,3 @@ module SolanaRB
     end
   end
 end
-
-# # Example usage
-# # Generate a new keypair
-# secret_key = SolanaRB::Utils.base58_decode("3CX5EZdnR1KB7YRzpumAXgjtA1sbmo2h7bJbL8sY8NTnb17a7PwnYaHrXXvqZdLWqgeqBJTKHkC4ioCG2TiQMAzY")
-# keypair = SolanaRB::Keypair.new(secret_key)
-# puts "Public Key: #{keypair.public_key_base58}"
-# puts "Secret Key: #{keypair.secret_key_base58}"
-
-# # Save to JSON
-# keypair.save_to_json('wallet.json')
-
-# # Load from JSON
-# loaded_keypair = SolanaRB::Keypair.load_from_json('wallet.json')
-# puts "Loaded Public Key: #{loaded_keypair.public_key_base58}"
-# puts "Loaded Secret Key: #{loaded_keypair.secret_key_base58}"
-
-# # Get balance of wallet
-# client = SolanaRB::Client.new
-# balance = client.get_balance(loaded_keypair.public_key_base58)
-# puts balance
