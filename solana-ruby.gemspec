@@ -15,6 +15,9 @@ Gem::Specification.new do |spec|
   
     spec.add_dependency "httparty", "~> 0.18.0"
     spec.add_dependency "csv", "~> 3.1"
+    spec.add_dependency "ed25519", "~> 1.3"
+    spec.add_dependency "base58", "~> 0.2.3"
+    spec.add_dependency "rqrcode", "~> 2.0"
 
     spec.add_development_dependency "rspec", "~> 3.10"
     spec.add_development_dependency "webmock", "~> 3.14"
