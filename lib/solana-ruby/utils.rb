@@ -4,9 +4,10 @@ require 'base64'
 module SolanaRB
   module Utils
     SYSTEM_PROGRAM_ID = '11111111111111111111111111111111'.freeze
-    MAINNET = ''.freeze
-    DEVNET = ''.freeze
-    TESTNET = ''.freeze
+    MAINNET = 'https://api.mainnet-beta.solana.com'.freeze
+    DEVNET = 'https://api.devnet.solana.com'.freeze
+    TESTNET = 'https://api.testnet.solana.com'.freeze
+    PACKET_DATA_SIZE = 1232
 
     def self.base58_encode(bytes)
       Base58.binary_to_base58(bytes, :bitcoin)

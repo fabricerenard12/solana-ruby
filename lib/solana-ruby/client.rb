@@ -1,18 +1,21 @@
 require 'httparty'
+require 'json'
+require_relative 'utils'
 
 module SolanaRB
   ##
   # Client class for interacting with the Solana JSON RPC API.
   class Client
     include HTTParty
-    base_uri 'https://api.testnet.solana.com'
 
     ##
     # Initializes a new Client.
     #
     # @param [String, nil] api_key Optional API key for authentication.
-    def initialize(api_key = nil)
+    def initialize(api_endpoint = SolanaRB::Utils::MAINNET, api_key = nil)
       @api_key = api_key
+      @api_endpoint = api_endpoint
+      self.class.base_uri @api_endpoint
     end
 
     ##
@@ -536,11 +539,6 @@ module SolanaRB
       }
       body[:params] = params if params
 
-      if method == "sendTransaction" ## TO REMOVE
-        transaction_string = body[:params][0].delete('"')
-        body[:params][0] = transaction_string
-      end
-
       options = {
         headers: { 'Content-Type' => 'application/json' },
         body: body.to_json
@@ -558,7 +556,6 @@ module SolanaRB
     # @raise [RuntimeError] If the request fails (non-success response).
     # @return [Object] The parsed result from the API response.
     def handle_response(response)
-      puts response.parsed_response
       if response.success?
         response.parsed_response['result']
       else
