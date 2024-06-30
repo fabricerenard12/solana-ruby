@@ -30,15 +30,7 @@ gem install solana-ruby
 ```ruby
 require 'solana-ruby'
 
-client = SolanaRB::Client.new
-```
-
-### Subscribe to Account Changes
-
-```ruby
-client.account_subscribe('public_key') do |result|
-  puts result
-end
+client = Solana::Client.new
 ```
 
 ## Documentation

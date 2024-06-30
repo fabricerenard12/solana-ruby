@@ -2,7 +2,7 @@ require 'rbnacl'
 require 'json'
 require_relative 'utils'
 
-module SolanaRB
+module Solana
   ##
   # The Keypair class represents a keypair for signing transactions on the Solana blockchain.
   #

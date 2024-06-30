@@ -4,7 +4,7 @@ require_relative "lib/solana-ruby/version"
 
 Gem::Specification.new do |spec|
     spec.name          = "solana-ruby"
-    spec.version       = SolanaRB::VERSION
+    spec.version       = Solana::VERSION
     spec.authors       = ["Fabrice Renard"]
     spec.email         = ["fabrice.renard12@outlook.com"]
 

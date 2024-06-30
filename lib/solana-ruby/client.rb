@@ -5,7 +5,7 @@ require 'thread'
 
 require_relative 'utils'
 
-module SolanaRB
+module Solana
   ##
   # Client class for interacting with the Solana JSON RPC API over HTTP and WS.
   class Client
@@ -13,7 +13,7 @@ module SolanaRB
     # Initializes a new Client.
     #
     # @param [String, nil] api_key Optional API key for authentication.
-    def initialize(api_endpoint = SolanaRB::Utils::MAINNET, api_key = nil)
+    def initialize(api_endpoint = Solana::Utils::MAINNET, api_key = nil)
       @api_key = api_key
       @api_endpoint = api_endpoint
       # @api_ws = WebSocket::Handshake::Client.new(url: @api_endpoint::WS)
@@ -30,8 +30,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the account.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The account information.
-    def get_account_info(pubkey, options = {})
-      request_http('getAccountInfo', [pubkey, options])
+    def get_account_info(pubkey, options = {}, &block)
+      request_http('getAccountInfo', [pubkey, options], &block)
     end
 
     ##
@@ -40,8 +40,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the account.
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The balance in lamports.
-    def get_balance(pubkey, options = {})
-      request_http('getBalance', [pubkey, options])
+    def get_balance(pubkey, options = {}, &block)
+      request_http('getBalance', [pubkey, options], &block)
     end
 
     ##
@@ -50,8 +50,8 @@ module SolanaRB
     # @param [Integer] slot_number The slot number of the block.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The block information.
-    def get_block(slot_number, options = {})
-      request_http('getBlock', [slot_number, options])
+    def get_block(slot_number, options = {}, &block)
+      request_http('getBlock', [slot_number, options], &block)
     end
 
     ##
@@ -60,8 +60,8 @@ module SolanaRB
     # @param [Integer] slot_number The slot number of the block.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The block commitment information.
-    def get_block_commitment(slot_number, options = {})
-      request_http('getBlockCommitment', [slot_number, options])
+    def get_block_commitment(slot_number, options = {}, &block)
+      request_http('getBlockCommitment', [slot_number, options], &block)
     end
 
     ##
@@ -69,8 +69,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The current block height.
-    def get_block_height(options = {})
-      request_http('getBlockHeight', [options])
+    def get_block_height(options = {}, &block)
+      request_http('getBlockHeight', [options], &block)
     end
 
     ##
@@ -78,8 +78,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The block production information.
-    def get_block_production(options = {})
-      request_http('getBlockProduction', [options])
+    def get_block_production(options = {}, &block)
+      request_http('getBlockProduction', [options], &block)
     end
 
     ##
@@ -88,8 +88,8 @@ module SolanaRB
     # @param [Integer] slot_number The slot number of the block.
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The estimated production time in seconds.
-    def get_block_time(slot_number, options = {})
-      request_http('getBlockTime', [slot_number, options])
+    def get_block_time(slot_number, options = {}, &block)
+      request_http('getBlockTime', [slot_number, options], &block)
     end
 
     ##
@@ -99,8 +99,8 @@ module SolanaRB
     # @param [Integer] end_slot The end slot number.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Integer>] The list of confirmed blocks.
-    def get_blocks(start_slot, end_slot, options = {})
-      request_http('getBlocks', [start_slot, end_slot, options])
+    def get_blocks(start_slot, end_slot, options = {}, &block)
+      request_http('getBlocks', [start_slot, end_slot, options], &block)
     end
 
     ##
@@ -110,8 +110,8 @@ module SolanaRB
     # @param [Integer] limit The maximum number of blocks to return.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Integer>] The list of confirmed blocks.
-    def get_blocks_with_limit(start_slot, limit, options = {})
-      request_http('getBlocksWithLimit', [start_slot, limit, options])
+    def get_blocks_with_limit(start_slot, limit, options = {}, &block)
+      request_http('getBlocksWithLimit', [start_slot, limit, options], &block)
     end
 
     ##
@@ -119,8 +119,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The list of cluster nodes.
-    def get_cluster_nodes(options = {})
-      request_http('getClusterNodes', [options])
+    def get_cluster_nodes(options = {}, &block)
+      request_http('getClusterNodes', [options], &block)
     end
 
     ##
@@ -128,8 +128,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The epoch information.
-    def get_epoch_info(options = {})
-      request_http('getEpochInfo', [options])
+    def get_epoch_info(options = {}, &block)
+      request_http('getEpochInfo', [options], &block)
     end
 
     ##
@@ -137,8 +137,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The epoch schedule.
-    def get_epoch_schedule(options = {})
-      request_http('getEpochSchedule', [options])
+    def get_epoch_schedule(options = {}, &block)
+      request_http('getEpochSchedule', [options], &block)
     end
 
     ##
@@ -147,8 +147,8 @@ module SolanaRB
     # @param [String] message The message for which the fee is to be calculated.
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The fee for the message.
-    def get_fee_for_message(message, options = {})
-      request_http('getFeeForMessage', [message, options])
+    def get_fee_for_message(message, options = {}, &block)
+      request_http('getFeeForMessage', [message, options], &block)
     end
 
     ##
@@ -156,8 +156,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The slot of the first available block.
-    def get_first_available_block(options = {})
-      request_http('getFirstAvailableBlock', [options])
+    def get_first_available_block(options = {}, &block)
+      request_http('getFirstAvailableBlock', [options], &block)
     end
 
     ##
@@ -165,8 +165,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [String] The genesis hash.
-    def get_genesis_hash(options = {})
-      request_http('getGenesisHash', [options])
+    def get_genesis_hash(options = {}, &block)
+      request_http('getGenesisHash', [options], &block)
     end
 
     ##
@@ -174,8 +174,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [String] The health status of the node.
-    def get_health(options = {})
-      request_http('getHealth', [options])
+    def get_health(options = {}, &block)
+      request_http('getHealth', [options], &block)
     end
 
     ##
@@ -183,8 +183,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The highest snapshot slot.
-    def get_highest_snapshot_slot(options = {})
-      request_http('getHighestSnapshotSlot', [options])
+    def get_highest_snapshot_slot(options = {}, &block)
+      request_http('getHighestSnapshotSlot', [options], &block)
     end
 
     ##
@@ -192,8 +192,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The identity information of the node.
-    def get_identity(options = {})
-      request_http('getIdentity', [options])
+    def get_identity(options = {}, &block)
+      request_http('getIdentity', [options], &block)
     end
 
     ##
@@ -201,8 +201,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The inflation governor settings.
-    def get_inflation_governor(options = {})
-      request_http('getInflationGovernor', [options])
+    def get_inflation_governor(options = {}, &block)
+      request_http('getInflationGovernor', [options], &block)
     end
 
     ##
@@ -210,8 +210,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The inflation rate.
-    def get_inflation_rate(options = {})
-      request_http('getInflationRate', [options])
+    def get_inflation_rate(options = {}, &block)
+      request_http('getInflationRate', [options], &block)
     end
 
     ##
@@ -220,8 +220,8 @@ module SolanaRB
     # @param [Array<String>] addresses The list of addresses.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The inflation rewards for the addresses.
-    def get_inflation_reward(addresses, options = {})
-      request_http('getInflationReward', [addresses, options])
+    def get_inflation_reward(addresses, options = {}, &block)
+      request_http('getInflationReward', [addresses, options], &block)
     end
 
     ##
@@ -229,8 +229,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The largest accounts.
-    def get_largest_accounts(options = {})
-      request_http('getLargestAccounts', [options])
+    def get_largest_accounts(options = {}, &block)
+      request_http('getLargestAccounts', [options], &block)
     end
 
     ##
@@ -238,8 +238,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The latest blockhash.
-    def get_latest_blockhash(options = {})
-      request_http('getLatestBlockhash', [options])
+    def get_latest_blockhash(options = {}, &block)
+      request_http('getLatestBlockhash', [options], &block)
     end
 
     ##
@@ -247,8 +247,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The leader schedule.
-    def get_leader_schedule(options = {})
-      request_http('getLeaderSchedule', [options])
+    def get_leader_schedule(options = {}, &block)
+      request_http('getLeaderSchedule', [options], &block)
     end
 
     ##
@@ -256,8 +256,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The maximum retransmit slot.
-    def get_max_retransmit_slot(options = {})
-      request_http('getMaxRetransmitSlot', [options])
+    def get_max_retransmit_slot(options = {}, &block)
+      request_http('getMaxRetransmitSlot', [options], &block)
     end
 
     ##
@@ -265,8 +265,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The maximum shred insert slot.
-    def get_max_shred_insert_slot(options = {})
-      request_http('getMaxShredInsertSlot', [options])
+    def get_max_shred_insert_slot(options = {}, &block)
+      request_http('getMaxShredInsertSlot', [options], &block)
     end
 
     ##
@@ -275,8 +275,8 @@ module SolanaRB
     # @param [Integer] data_length The length of the data in bytes.
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The minimum balance for rent exemption.
-    def get_minimum_balance_for_rent_exemption(data_length, options = {})
-      request_http('getMinimumBalanceForRentExemption', [data_length, options])
+    def get_minimum_balance_for_rent_exemption(data_length, options = {}, &block)
+      request_http('getMinimumBalanceForRentExemption', [data_length, options], &block)
     end
 
     ##
@@ -285,8 +285,8 @@ module SolanaRB
     # @param [Array<String>] pubkeys The list of public keys.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The information for the accounts.
-    def get_multiple_accounts(pubkeys, options = {})
-      request_http('getMultipleAccounts', [pubkeys, options])
+    def get_multiple_accounts(pubkeys, options = {}, &block)
+      request_http('getMultipleAccounts', [pubkeys, options], &block)
     end
 
     ##
@@ -295,8 +295,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the program.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The information for the program accounts.
-    def get_program_accounts(pubkey, options = {})
-      request_http('getProgramAccounts', [pubkey, options])
+    def get_program_accounts(pubkey, options = {}, &block)
+      request_http('getProgramAccounts', [pubkey, options], &block)
     end
 
     ##
@@ -304,8 +304,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The recent performance samples.
-    def get_recent_performance_samples(options = {})
-      request_http('getRecentPerformanceSamples', [options])
+    def get_recent_performance_samples(options = {}, &block)
+      request_http('getRecentPerformanceSamples', [options], &block)
     end
 
     ##
@@ -313,8 +313,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The recent prioritization fees.
-    def get_recent_prioritization_fees(options = {})
-      request_http('getRecentPrioritizationFees', [options])
+    def get_recent_prioritization_fees(options = {}, &block)
+      request_http('getRecentPrioritizationFees', [options], &block)
     end
 
     ##
@@ -323,8 +323,8 @@ module SolanaRB
     # @param [Array<String>] signatures The list of transaction signatures.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The status of the transaction signatures.
-    def get_signature_statuses(signatures, options = {})
-      request_http('getSignatureStatuses', [signatures, options])
+    def get_signature_statuses(signatures, options = {}, &block)
+      request_http('getSignatureStatuses', [signatures, options], &block)
     end
 
     ##
@@ -333,8 +333,8 @@ module SolanaRB
     # @param [String] address The address for which to retrieve signatures.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The signatures for the address.
-    def get_signatures_for_address(address, options = {})
-      request_http('getSignaturesForAddress', [address, options])
+    def get_signatures_for_address(address, options = {}, &block)
+      request_http('getSignaturesForAddress', [address, options], &block)
     end
 
     ##
@@ -342,8 +342,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The current slot.
-    def get_slot(options = {})
-      request_http('getSlot', [options])
+    def get_slot(options = {}, &block)
+      request_http('getSlot', [options], &block)
     end
 
     ##
@@ -351,8 +351,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [String] The current slot leader.
-    def get_slot_leader(options = {})
-      request_http('getSlotLeader', [options])
+    def get_slot_leader(options = {}, &block)
+      request_http('getSlotLeader', [options], &block)
     end
 
     ##
@@ -362,8 +362,8 @@ module SolanaRB
     # @param [Integer] limit The maximum number of leaders to return.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<String>] The slot leaders.
-    def get_slot_leaders(start_slot, limit, options = {})
-      request_http('getSlotLeaders', [start_slot, limit, options])
+    def get_slot_leaders(start_slot, limit, options = {}, &block)
+      request_http('getSlotLeaders', [start_slot, limit, options], &block)
     end
 
     ##
@@ -372,8 +372,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the stake account.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The stake activation information.
-    def get_stake_activation(pubkey, options = {})
-      request_http('getStakeActivation', [pubkey, options])
+    def get_stake_activation(pubkey, options = {}, &block)
+      request_http('getStakeActivation', [pubkey, options], &block)
     end
 
     ##
@@ -381,8 +381,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The minimum delegation.
-    def get_stake_minimum_delegation(options = {})
-      request_http('getStakeMinimumDelegation', [options])
+    def get_stake_minimum_delegation(options = {}, &block)
+      request_http('getStakeMinimumDelegation', [options], &block)
     end
 
     ##
@@ -390,8 +390,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The supply information.
-    def get_supply(options = {})
-      request_http('getSupply', [options])
+    def get_supply(options = {}, &block)
+      request_http('getSupply', [options], &block)
     end
 
     ##
@@ -400,8 +400,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the token account.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The token balance.
-    def get_token_account_balance(pubkey, options = {})
-      request_http('getTokenAccountBalance', [pubkey, options])
+    def get_token_account_balance(pubkey, options = {}, &block)
+      request_http('getTokenAccountBalance', [pubkey, options], &block)
     end
 
     ##
@@ -411,8 +411,8 @@ module SolanaRB
     # @param [Hash] opts Additional options for the request.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The token accounts by delegate.
-    def get_token_accounts_by_delegate(delegate, opts = {}, options = {})
-      request_http('getTokenAccountsByDelegate', [delegate, opts, options])
+    def get_token_accounts_by_delegate(delegate, opts = {}, options = {}, &block)
+      request_http('getTokenAccountsByDelegate', [delegate, opts, options], &block)
     end
 
     ##
@@ -422,8 +422,8 @@ module SolanaRB
     # @param [Hash] opts Additional options for the request.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The token accounts by owner.
-    def get_token_accounts_by_owner(owner, opts = {}, options = {})
-      request_http('getTokenAccountsByOwner', [owner, opts, options])
+    def get_token_accounts_by_owner(owner, opts = {}, options = {}, &block)
+      request_http('getTokenAccountsByOwner', [owner, opts, options], &block)
     end
 
     ##
@@ -432,8 +432,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the token.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The largest accounts for the token.
-    def get_token_largest_accounts(pubkey, options = {})
-      request_http('getTokenLargestAccounts', [pubkey, options])
+    def get_token_largest_accounts(pubkey, options = {}, &block)
+      request_http('getTokenLargestAccounts', [pubkey, options], &block)
     end
 
     ##
@@ -442,8 +442,8 @@ module SolanaRB
     # @param [String] pubkey The public key of the token.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The token supply.
-    def get_token_supply(pubkey, options = {})
-      request_http('getTokenSupply', [pubkey, options])
+    def get_token_supply(pubkey, options = {}, &block)
+      request_http('getTokenSupply', [pubkey, options], &block)
     end
 
     ##
@@ -452,8 +452,8 @@ module SolanaRB
     # @param [String] signature The transaction signature.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The transaction details.
-    def get_transaction(signature, options = {})
-      request_http('getTransaction', [signature, options])
+    def get_transaction(signature, options = {}, &block)
+      request_http('getTransaction', [signature, options], &block)
     end
 
     ##
@@ -461,16 +461,16 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The total number of transactions.
-    def get_transaction_count(options = {})
-      request_http('getTransactionCount', [options])
+    def get_transaction_count(options = {}, &block)
+      request_http('getTransactionCount', [options], &block)
     end
 
     ##
     # Retrieves the current version of the Solana software.
     #
     # @return [Hash] The current version information.
-    def get_version
-      request_http('getVersion')
+    def get_version(&block)
+      request_http('getVersion', &block)
     end
 
     ##
@@ -478,8 +478,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The list of vote accounts.
-    def get_vote_accounts(options = {})
-      request_http('getVoteAccounts', [options])
+    def get_vote_accounts(options = {}, &block)
+      request_http('getVoteAccounts', [options], &block)
     end
 
     ##
@@ -488,8 +488,8 @@ module SolanaRB
     # @param [String] blockhash The blockhash to check.
     # @param [Hash] options Optional parameters for the request.
     # @return [Boolean] Whether the blockhash is valid.
-    def is_blockhash_valid(blockhash, options = {})
-      request_http('isBlockhashValid', [blockhash, options])
+    def is_blockhash_valid(blockhash, options = {}, &block)
+      request_http('isBlockhashValid', [blockhash, options], &block)
     end
 
     ##
@@ -497,8 +497,8 @@ module SolanaRB
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The minimum ledger slot.
-    def minimum_ledger_slot(options = {})
-      request_http('minimumLedgerSlot', [options])
+    def minimum_ledger_slot(options = {}, &block)
+      request_http('minimumLedgerSlot', [options], &block)
     end
 
     ##
@@ -508,8 +508,8 @@ module SolanaRB
     # @param [Integer] lamports The amount of lamports to airdrop.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The airdrop request response.
-    def request_airdrop(pubkey, lamports, options = {})
-      request_http('requestAirdrop', [pubkey, lamports, options])
+    def request_airdrop(pubkey, lamports, options = {}, &block)
+      request_http('requestAirdrop', [pubkey, lamports, options], &block)
     end
 
     ##
@@ -517,8 +517,8 @@ module SolanaRB
     #
     # @param [Hash] transaction The transaction to send.
     # @return [Hash] The response from the send transaction request.
-    def send_transaction(transaction)
-      request_http('sendTransaction', [transaction.to_json])
+    def send_transaction(transaction, &block)
+      request_http('sendTransaction', [transaction.to_json], &block)
     end
 
     ##
@@ -527,8 +527,8 @@ module SolanaRB
     # @param [Hash] transaction The transaction to simulate.
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The simulation response.
-    def simulate_transaction(transaction, options = {})
-      request_http('simulateTransaction', [transaction.to_json, options])
+    def simulate_transaction(transaction, options = {}, &block)
+      request_http('simulateTransaction', [transaction.to_json, options], &block)
     end
 
     ##
@@ -693,13 +693,14 @@ module SolanaRB
       request_ws('voteUnsubscribe', [subscription_id], &block)
     end
 
+    private
     ##
     # Sends a JSON-RPC request to the Solana API.
     #
     # @param [String] method The RPC method to call.
     # @param [Array] params The parameters for the RPC method.
     # @return [Object] The parsed response from the API.
-    def request_http(method, params = nil)
+    def request_http(method, params = nil, &block)
       body = {
         jsonrpc: '2.0',
         method: method,
@@ -712,7 +713,7 @@ module SolanaRB
         req.body = body.to_json
       end
 
-      handle_response_http(response)
+      handle_response_http(response, &block)
     end
 
     ##
@@ -721,9 +722,14 @@ module SolanaRB
     # @param [Faraday::Response] response The HTTP response object.
     # @raise [RuntimeError] If the request fails (non-success response).
     # @return [Object] The parsed result from the API response.
-    def handle_response_http(response)
+    def handle_response_http(response, &block)
       if response.success?
-        response.body['result']
+        result = response.body['result']
+        if block_given?
+          yield result
+        else
+          return result
+        end
       else
         raise "Request failed: #{response.status} #{response.reason_phrase}"
       end

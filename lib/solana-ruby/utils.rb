@@ -1,7 +1,7 @@
 require 'base58'
 require 'base64'
 
-module SolanaRB
+module Solana
   ##
   # The Utils module provides utility methods and constants for interacting with the Solana blockchain.
   #
