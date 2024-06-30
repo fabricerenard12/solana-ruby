@@ -16,7 +16,6 @@ module Solana
     def initialize(api_endpoint = Solana::Utils::MAINNET, api_key = nil)
       @api_key = api_key
       @api_endpoint = api_endpoint
-      # @api_ws = WebSocket::Handshake::Client.new(url: @api_endpoint::WS)
       @api_http = Faraday.new(url: @api_endpoint::HTTP) do |faraday|
         faraday.request :json
         faraday.response :json, content_type: 'application/json'
