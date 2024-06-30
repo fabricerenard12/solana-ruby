@@ -1,10 +1,11 @@
 require 'rbnacl'
-require 'base58'
 require 'json'
-require_relative 'client'
 require_relative 'utils'
 
 module SolanaRB
+  ##
+  # The Keypair class represents a keypair for signing transactions on the Solana blockchain.
+  #
   class Keypair
     attr_reader :public_key, :secret_key
 
@@ -30,6 +31,23 @@ module SolanaRB
     end
 
     ##
+    # Generates a new Keypair.
+    #
+    # @return [Keypair] A new Keypair instance.
+    def self.generate
+      new
+    end
+
+    ##
+    # Creates a Keypair from a provided secret key.
+    #
+    # @param [String] secret_key The secret key in binary format.
+    # @return [Keypair] A new Keypair instance initialized with the provided secret key.
+    def self.from_secret_key(secret_key)
+      new(secret_key)
+    end
+
+    ##
     # Saves the keypair to a JSON file.
     #
     # The public and secret keys are encoded in Base58 format before being saved.
@@ -37,8 +55,8 @@ module SolanaRB
     # @param [String] file_path The path to the file where the keypair will be saved.
     def save_to_json(file_path)
       data = {
-        public_key: Base58.binary_to_base58(@public_key, :bitcoin),
-        secret_key: Base58.binary_to_base58(@secret_key, :bitcoin)
+        public_key: Utils::base58_encode(@public_key),
+        secret_key: Utils::base58_encode(@secret_key)
       }
       File.write(file_path, data.to_json)
     end
@@ -55,8 +73,8 @@ module SolanaRB
     # @return [Keypair] The loaded keypair.
     def self.load_from_json(file_path)
       data = JSON.parse(File.read(file_path), symbolize_names: true)
-      secret_key = Base58.base58_to_binary(data[:secret_key], :bitcoin)
-      public_key = Base58.base58_to_binary(data[:public_key], :bitcoin)
+      secret_key = Utils::base58_decode(data[:secret_key])
+      public_key = Utils::base58_decode(data[:public_key])
 
       raise 'Bad secret key size' unless secret_key.bytesize == 64
 
@@ -73,7 +91,7 @@ module SolanaRB
     #
     # @return [String] The public key in Base58 format.
     def public_key_base58
-      Base58.binary_to_base58(@public_key, :bitcoin)
+      Utils::base58_encode(@public_key)
     end
 
     ##
@@ -81,7 +99,7 @@ module SolanaRB
     #
     # @return [String] The secret key in Base58 format.
     def secret_key_base58
-      Base58.binary_to_base58(@secret_key, :bitcoin)
+      Utils::base58_encode(@secret_key)
     end
   end
 end
