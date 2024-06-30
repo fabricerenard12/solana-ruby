@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
 
     spec.metadata["homepage_uri"] = spec.homepage
 
-    spec.add_dependency "faraday", "~> 2.9.2"
-    spec.add_dependency "faye-websocket", "~> 1.2.10"
+    spec.add_dependency "httpx", "~> 1.2"
+    spec.add_dependency "faye-websocket", "~> 0.11.3"
     spec.add_dependency "csv", "~> 3.1"
     spec.add_dependency "ed25519", "~> 1.3"
     spec.add_dependency "base58", "~> 0.2.3"

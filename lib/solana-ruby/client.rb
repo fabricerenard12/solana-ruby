@@ -1,7 +1,6 @@
-require 'faraday'
 require 'faye/websocket'
+require 'httpx'
 require 'json'
-require 'thread'
 
 require_relative 'utils'
 
@@ -16,11 +15,6 @@ module Solana
     def initialize(api_endpoint = Solana::Utils::MAINNET, api_key = nil)
       @api_key = api_key
       @api_endpoint = api_endpoint
-      @api_http = Faraday.new(url: @api_endpoint::HTTP) do |faraday|
-        faraday.request :json
-        faraday.response :json, content_type: 'application/json'
-        faraday.adapter Faraday.default_adapter
-      end
     end
 
     ##
@@ -698,7 +692,7 @@ module Solana
     #
     # @param [String] method The RPC method to call.
     # @param [Array] params The parameters for the RPC method.
-    # @return [Object] The parsed response from the API.
+    # @yield [Object] The parsed response from the API.
     def request_http(method, params = nil, &block)
       body = {
         jsonrpc: '2.0',
@@ -707,12 +701,11 @@ module Solana
       }
       body[:params] = params if params
 
-      response = @api_http.post do |req|
-        req.headers['Content-Type'] = 'application/json'
-        req.body = body.to_json
+      HTTPX.post(@api_endpoint::HTTP, json: body).then do |response|
+        handle_response_http(response, &block)
+      rescue => e
+        puts "HTTP request failed: #{e}"
       end
-
-      handle_response_http(response, &block)
     end
 
     ##
@@ -720,17 +713,17 @@ module Solana
     #
     # @param [Faraday::Response] response The HTTP response object.
     # @raise [RuntimeError] If the request fails (non-success response).
-    # @return [Object] The parsed result from the API response.
+    # @yield [Object] The parsed result from the API response.
     def handle_response_http(response, &block)
-      if response.success?
-        result = response.body['result']
+      if response.status == 200
+        result = JSON.parse(response.body)['result']
         if block_given?
           yield result
         else
-          return result
+          result
         end
       else
-        raise "Request failed: #{response.status} #{response.reason_phrase}"
+        raise "Request failed"
       end
     end
 
