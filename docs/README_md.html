@@ -62,11 +62,23 @@
   <ul class="link-list" role="directory">
               <li>
             <details open>
-              <summary>      <a href="#label-solana-ruby">solana-ruby</a>
+              <summary>      <a href="#label-Solana-Ruby">Solana-Ruby</a>
 </summary>
               <ul class="link-list" role="directory">
                           <li>      <a href="#label-Installation">Installation</a>
-          <li>      <a href="#label-Usage">Usage</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Usage">Usage</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Initialize+the+Client">Initialize the Client</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Documentation">Documentation</a>
+          <li>      <a href="#label-Contributing">Contributing</a>
+          <li>      <a href="#label-License">License</a>
 
               </ul>
             </details>
@@ -86,7 +98,6 @@
     <li><a href="./Gemfile_lock.html">Gemfile.lock</a>
     <li><a href="./LICENSE.html">LICENSE</a>
     <li><a href="./README_md.html">README</a>
-    <li><a href="./build_sh.html">build.sh</a>
   </ul>
 </div>
 
@@ -95,27 +106,47 @@
 
 <main role="main" aria-label="Page README.md">
 
-<h1 id="label-solana-ruby">solana-ruby<span><a href="#label-solana-ruby">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-Solana-Ruby">Solana-Ruby<span><a href="#label-Solana-Ruby">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<p>This Ruby gem provides a simple wrapper for interacting with the Solana RPC API. It allows you to easily make requests to the Solana blockchain network from your Ruby applications.</p>
+<p>Solana-Ruby is a Ruby SDK for interacting with the <a href="Solana.html"><code>Solana</code></a> blockchain. It allows you to easily make requests to the <a href="Solana.html"><code>Solana</code></a> network from your Ruby applications.</p>
 
 <h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>You can install the gem using RubyGems:</p>
+<p>Add this line to your application’s Gemfile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;solana-ruby&#39;</span>, <span class="ruby-string">&#39;~&gt; 0.1.1&#39;</span>
+</pre>
+
+<p>And then execute:</p>
+
+<pre class="ruby"><span class="ruby-identifier">bundle</span> <span class="ruby-identifier">install</span>
+</pre>
+
+<p>Or install it yourself as:</p>
 
 <pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-identifier">install</span> <span class="ruby-identifier">solana</span><span class="ruby-operator">-</span><span class="ruby-identifier">ruby</span>
 </pre>
 
-<p>Or add it to your <a href="Gemfile.html">Gemfile</a> for Bundler:</p>
-
-<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;solana_rb&#39;</span>, <span class="ruby-string">&#39;~&gt; 0.1.0&#39;</span>
-</pre>
-
-<p>Then, run bundle install to install the gem.</p>
-
 <h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>First, require the gem in your Ruby code:</p>
+<h3 id="label-Initialize+the+Client">Initialize the Client<span><a href="#label-Initialize+the+Client">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;solana-ruby&#39;</span>
+
+<span class="ruby-identifier">client</span> = <span class="ruby-constant">Solana</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>
+</pre>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can find the full documentation <a href="https://fabricerenard12.github.io/solana-ruby">here</a>.</p>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/fabricerenard12/solana-ruby">github.com/fabricerenard12/solana-ruby</a>.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The gem is available as open-source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
 
 </main>
 

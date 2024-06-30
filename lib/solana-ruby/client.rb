@@ -716,7 +716,7 @@ module Solana
     # @yield [Object] The parsed result from the API response.
     def handle_response_http(response, &block)
       if response.status == 200
-        result = JSON.parse(response.body)['result']
+        result = JSON.parse(response.body)
         if block_given?
           yield result
         else

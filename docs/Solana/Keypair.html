@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Solana::Keypair - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link">Object
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-from_secret_key">::from_secret_key</a>
+    <li ><a href="#method-c-generate">::generate</a>
+    <li ><a href="#method-c-load_from_json">::load_from_json</a>
+    <li ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-public_key_base58">#public_key_base58</a>
+    <li ><a href="#method-i-save_to_json">#save_to_json</a>
+    <li ><a href="#method-i-secret_key_base58">#secret_key_base58</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Solana::Keypair">
+  <h1 id="class-Solana::Keypair" class="class">
+    class Solana::Keypair
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Keypair.html"><code>Keypair</code></a> class represents a keypair for signing transactions on the <a href="../Solana.html"><code>Solana</code></a> blockchain.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-public_key" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">public_key</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-secret_key" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">secret_key</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-from_secret_key" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">from_secret_key</span><span
+              class="method-args">(secret_key)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Creates a <a href="Keypair.html"><code>Keypair</code></a> from a provided secret key.</p>
+
+<p>@param [String] <a href="Keypair.html#attribute-i-secret_key"><code>secret_key</code></a> The secret key in binary format. @return [Keypair] A new <a href="Keypair.html"><code>Keypair</code></a> instance initialized with the provided secret key.</p>
+
+          <div class="method-source-code" id="from_secret_key-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">from_secret_key</span>(<span class="ruby-identifier">secret_key</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">secret_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-generate" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">generate</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Generates a new <a href="Keypair.html"><code>Keypair</code></a>.</p>
+
+<p>@return [Keypair] A new <a href="Keypair.html"><code>Keypair</code></a> instance.</p>
+
+          <div class="method-source-code" id="generate-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">generate</span>
+  <span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-load_from_json" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">load_from_json</span><span
+              class="method-args">(file_path)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Loads a keypair from a JSON file.</p>
+
+<p>The file must contain the public and secret keys in Base58 format. The method verifies the size of the secret key and checks that the derived public key matches the saved public key.</p>
+
+<p>Raises an error if the <code>secret_key</code> is not 64 bytes long or if the derived public key does not match the saved public key.</p>
+
+<p>@param [String] file_path The path to the file from which the keypair will be loaded. @return [Keypair] The loaded keypair.</p>
+
+          <div class="method-source-code" id="load_from_json-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load_from_json</span>(<span class="ruby-identifier">file_path</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file_path</span>), <span class="ruby-value">symbolize_names:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">secret_key</span> = <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-identifier">base58_decode</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value">:secret_key</span>])
+  <span class="ruby-identifier">public_key</span> = <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-identifier">base58_decode</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value">:public_key</span>])
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Bad secret key size&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">secret_key</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">==</span> <span class="ruby-value">64</span>
+
+  <span class="ruby-identifier">signing_key</span> = <span class="ruby-constant">RbNaCl</span><span class="ruby-operator">::</span><span class="ruby-constant">Signatures</span><span class="ruby-operator">::</span><span class="ruby-constant">Ed25519</span><span class="ruby-operator">::</span><span class="ruby-constant">SigningKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">secret_key</span>[<span class="ruby-value">0</span>, <span class="ruby-value">32</span>])
+  <span class="ruby-identifier">loaded_public_key</span> = <span class="ruby-identifier">signing_key</span>.<span class="ruby-identifier">verify_key</span>.<span class="ruby-identifier">to_bytes</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Provided secretKey is invalid&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">loaded_public_key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">public_key</span>
+
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">secret_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(secret_key = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Initializes a new <a href="Keypair.html"><code>Keypair</code></a>.</p>
+
+<p>If a <code>secret_key</code> is provided, it must be 64 bytes long. The first 32 bytes are used as the signing key, and the public key is derived from it. If no <code>secret_key</code> is provided, a new keypair is generated.</p>
+
+<p>Raises an error if the <code>secret_key</code> is not 64 bytes long.</p>
+
+<p>@param [String, nil] <a href="Keypair.html#attribute-i-secret_key"><code>secret_key</code></a> The secret key to use for the keypair, in binary format (optional).</p>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">secret_key</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">secret_key</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Bad secret key size&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">secret_key</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">==</span> <span class="ruby-value">64</span>
+    <span class="ruby-ivar">@signing_key</span> = <span class="ruby-constant">RbNaCl</span><span class="ruby-operator">::</span><span class="ruby-constant">Signatures</span><span class="ruby-operator">::</span><span class="ruby-constant">Ed25519</span><span class="ruby-operator">::</span><span class="ruby-constant">SigningKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">secret_key</span>[<span class="ruby-value">0</span>, <span class="ruby-value">32</span>])
+    <span class="ruby-ivar">@public_key</span> = <span class="ruby-ivar">@signing_key</span>.<span class="ruby-identifier">verify_key</span>.<span class="ruby-identifier">to_bytes</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@signing_key</span> = <span class="ruby-constant">RbNaCl</span><span class="ruby-operator">::</span><span class="ruby-constant">Signatures</span><span class="ruby-operator">::</span><span class="ruby-constant">Ed25519</span><span class="ruby-operator">::</span><span class="ruby-constant">SigningKey</span>.<span class="ruby-identifier">generate</span>
+    <span class="ruby-ivar">@public_key</span> = <span class="ruby-ivar">@signing_key</span>.<span class="ruby-identifier">verify_key</span>.<span class="ruby-identifier">to_bytes</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@secret_key</span> = <span class="ruby-ivar">@signing_key</span>.<span class="ruby-identifier">to_bytes</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@public_key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-public_key_base58" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">public_key_base58</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Returns the public key for this keypair in Base58 format.</p>
+
+<p>@return [String] The public key in Base58 format.</p>
+
+          <div class="method-source-code" id="public_key_base58-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">public_key_base58</span>
+  <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-identifier">base58_encode</span>(<span class="ruby-ivar">@public_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-save_to_json" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">save_to_json</span><span
+              class="method-args">(file_path)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Saves the keypair to a JSON file.</p>
+
+<p>The public and secret keys are encoded in Base58 format before being saved.</p>
+
+<p>@param [String] file_path The path to the file where the keypair will be saved.</p>
+
+          <div class="method-source-code" id="save_to_json-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_to_json</span>(<span class="ruby-identifier">file_path</span>)
+  <span class="ruby-identifier">data</span> = {
+    <span class="ruby-value">public_key:</span> <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-identifier">base58_encode</span>(<span class="ruby-ivar">@public_key</span>),
+    <span class="ruby-value">secret_key:</span> <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-identifier">base58_encode</span>(<span class="ruby-ivar">@secret_key</span>)
+  }
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">file_path</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-secret_key_base58" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">secret_key_base58</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Returns the raw secret key for this keypair in Base58 format.</p>
+
+<p>@return [String] The secret key in Base58 format.</p>
+
+          <div class="method-source-code" id="secret_key_base58-source">
+            <pre><span class="ruby-comment"># File lib/solana-ruby/keypair.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">secret_key_base58</span>
+  <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-identifier">base58_encode</span>(<span class="ruby-ivar">@secret_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.7.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
