@@ -1,6 +1,7 @@
 require 'faye/websocket'
 require 'httpx'
 require 'json'
+require 'thread'
 
 require_relative 'utils'
 
@@ -688,11 +689,16 @@ module Solana
 
     private
     ##
-    # Sends a JSON-RPC request to the Solana API.
+    # Sends a JSON-RPC request to the Solana API over HTTP.
+    #
+    # This method constructs a JSON-RPC request and sends it to the Solana API endpoint using HTTP.
+    # It then handles the response asynchronously.
     #
     # @param [String] method The RPC method to call.
     # @param [Array] params The parameters for the RPC method.
     # @yield [Object] The parsed response from the API.
+    # @return [Object, nil] The parsed response from the API if no block is given, otherwise nil.
+    # @raise [RuntimeError] If the request fails (non-success response).
     def request_http(method, params = nil, &block)
       body = {
         jsonrpc: '2.0',
@@ -711,9 +717,13 @@ module Solana
     ##
     # Handles the API response, checking for success and parsing the result.
     #
-    # @param [Faraday::Response] response The HTTP response object.
-    # @raise [RuntimeError] If the request fails (non-success response).
+    # This method processes the HTTP response from the Solana API, checking if the request was successful.
+    # If successful, it parses the JSON response and yields the result to the provided block.
+    #
+    # @param [HTTPX::Response] response The HTTP response object.
     # @yield [Object] The parsed result from the API response.
+    # @return [Object] The parsed result from the API response.
+    # @raise [RuntimeError] If the request fails (non-success response).
     def handle_response_http(response, &block)
       if response.status == 200
         result = JSON.parse(response.body)
@@ -730,11 +740,16 @@ module Solana
     ##
     # Sends a JSON-RPC request to the Solana API over WebSocket.
     #
+    # This method constructs a JSON-RPC request and sends it to the Solana API endpoint using WebSocket.
+    # It then handles the response asynchronously, providing the result to the provided block or returning it via a queue.
+    #
     # @param [String] method The RPC method to call.
     # @param [Array] params The parameters for the RPC method.
     # @yield [Object] The parsed response from the API.
-
+    # @return [Object, nil] The parsed response from the API if no block is given, otherwise nil.
+    # @raise [RuntimeError] If the WebSocket connection fails or an error occurs during communication.
     def request_ws(method, params = nil, &block)
+      result_queue = Queue.new
       EM.run do
         ws = Faye::WebSocket::Client.new(@api_endpoint::WS)
 
@@ -751,7 +766,11 @@ module Solana
 
         ws.on :message do |event|
           response = JSON.parse(event.data)
-          yield response['result'] if block_given?
+          if block_given?
+            yield response['result']
+          else
+            result_queue.push(response['result'])
+          end
           ws.close
         end
 
@@ -762,10 +781,12 @@ module Solana
 
         ws.on :error do |event|
           puts "WebSocket error: #{event.message}"
+          result_queue.push(nil)
           ws = nil
           EM.stop
         end
       end
+      result_queue.pop unless block_given?
     end
   end
 end

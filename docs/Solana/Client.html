@@ -187,7 +187,7 @@
 <p>@param [String, nil] api_key Optional API key for authentication.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 15</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">api_endpoint</span> = <span class="ruby-constant">Solana</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">MAINNET</span>, <span class="ruby-identifier">api_key</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@api_key</span> = <span class="ruby-identifier">api_key</span>
   <span class="ruby-ivar">@api_endpoint</span> = <span class="ruby-identifier">api_endpoint</span>
@@ -220,7 +220,7 @@
 <p>@param [String] pubkey The public key of the account. @param [Hash] options Optional parameters for the subscription. @yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="account_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 533</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 534</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">account_subscribe</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;accountSubscribe&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -245,7 +245,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="account_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 542</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 543</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">account_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;accountUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -270,7 +270,7 @@
 <p>@param [Hash] options Optional parameters for the subscription. @yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="block_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 551</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 552</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">block_subscribe</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;blockSubscribe&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -295,7 +295,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="block_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 560</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 561</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">block_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;blockUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -320,7 +320,7 @@
 <p>@param [String] pubkey The public key of the account. @param [Hash] options Optional parameters for the request. @return [Hash] The account information.</p>
 
           <div class="method-source-code" id="get_account_info-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_account_info</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getAccountInfo&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -345,7 +345,7 @@
 <p>@param [String] pubkey The public key of the account. @param [Hash] options Optional parameters for the request. @return [Integer] The balance in lamports.</p>
 
           <div class="method-source-code" id="get_balance-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 36</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_balance</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBalance&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -370,7 +370,7 @@
 <p>@param [Integer] slot_number The slot number of the block. @param [Hash] options Optional parameters for the request. @return [Hash] The block information.</p>
 
           <div class="method-source-code" id="get_block-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 46</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_block</span>(<span class="ruby-identifier">slot_number</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlock&#39;</span>, [<span class="ruby-identifier">slot_number</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -395,7 +395,7 @@
 <p>@param [Integer] slot_number The slot number of the block. @param [Hash] options Optional parameters for the request. @return [Hash] The block commitment information.</p>
 
           <div class="method-source-code" id="get_block_commitment-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 56</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_block_commitment</span>(<span class="ruby-identifier">slot_number</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlockCommitment&#39;</span>, [<span class="ruby-identifier">slot_number</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -420,7 +420,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The current block height.</p>
 
           <div class="method-source-code" id="get_block_height-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 65</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_block_height</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlockHeight&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -445,7 +445,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The block production information.</p>
 
           <div class="method-source-code" id="get_block_production-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 74</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_block_production</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlockProduction&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -470,7 +470,7 @@
 <p>@param [Integer] slot_number The slot number of the block. @param [Hash] options Optional parameters for the request. @return [Integer] The estimated production time in seconds.</p>
 
           <div class="method-source-code" id="get_block_time-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 84</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_block_time</span>(<span class="ruby-identifier">slot_number</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlockTime&#39;</span>, [<span class="ruby-identifier">slot_number</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -495,7 +495,7 @@
 <p>@param [Integer] start_slot The start slot number. @param [Integer] end_slot The end slot number. @param [Hash] options Optional parameters for the request. @return [Array&lt;Integer&gt;] The list of confirmed blocks.</p>
 
           <div class="method-source-code" id="get_blocks-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 95</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_blocks</span>(<span class="ruby-identifier">start_slot</span>, <span class="ruby-identifier">end_slot</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlocks&#39;</span>, [<span class="ruby-identifier">start_slot</span>, <span class="ruby-identifier">end_slot</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -520,7 +520,7 @@
 <p>@param [Integer] start_slot The start slot number. @param [Integer] limit The maximum number of blocks to return. @param [Hash] options Optional parameters for the request. @return [Array&lt;Integer&gt;] The list of confirmed blocks.</p>
 
           <div class="method-source-code" id="get_blocks_with_limit-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 106</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_blocks_with_limit</span>(<span class="ruby-identifier">start_slot</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getBlocksWithLimit&#39;</span>, [<span class="ruby-identifier">start_slot</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -545,7 +545,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The list of cluster nodes.</p>
 
           <div class="method-source-code" id="get_cluster_nodes-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 115</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 116</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_cluster_nodes</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getClusterNodes&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -570,7 +570,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The epoch information.</p>
 
           <div class="method-source-code" id="get_epoch_info-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 124</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_epoch_info</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getEpochInfo&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -595,7 +595,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The epoch schedule.</p>
 
           <div class="method-source-code" id="get_epoch_schedule-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 133</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 134</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_epoch_schedule</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getEpochSchedule&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -620,7 +620,7 @@
 <p>@param [String] message The message for which the fee is to be calculated. @param [Hash] options Optional parameters for the request. @return [Integer] The fee for the message.</p>
 
           <div class="method-source-code" id="get_fee_for_message-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 143</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 144</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_fee_for_message</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getFeeForMessage&#39;</span>, [<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -645,7 +645,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The slot of the first available block.</p>
 
           <div class="method-source-code" id="get_first_available_block-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 152</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 153</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_first_available_block</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getFirstAvailableBlock&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -670,7 +670,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [String] The genesis hash.</p>
 
           <div class="method-source-code" id="get_genesis_hash-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 161</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 162</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_genesis_hash</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getGenesisHash&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -695,7 +695,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [String] The health status of the node.</p>
 
           <div class="method-source-code" id="get_health-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 170</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 171</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_health</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getHealth&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -720,7 +720,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The highest snapshot slot.</p>
 
           <div class="method-source-code" id="get_highest_snapshot_slot-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 179</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 180</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_highest_snapshot_slot</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getHighestSnapshotSlot&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -745,7 +745,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The identity information of the node.</p>
 
           <div class="method-source-code" id="get_identity-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 188</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 189</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_identity</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getIdentity&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -770,7 +770,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The inflation governor settings.</p>
 
           <div class="method-source-code" id="get_inflation_governor-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 197</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 198</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_inflation_governor</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getInflationGovernor&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -795,7 +795,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The inflation rate.</p>
 
           <div class="method-source-code" id="get_inflation_rate-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 206</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 207</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_inflation_rate</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getInflationRate&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -820,7 +820,7 @@
 <p>@param [Array&lt;String&gt;] addresses The list of addresses. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The inflation rewards for the addresses.</p>
 
           <div class="method-source-code" id="get_inflation_reward-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 216</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 217</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_inflation_reward</span>(<span class="ruby-identifier">addresses</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getInflationReward&#39;</span>, [<span class="ruby-identifier">addresses</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -845,7 +845,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The largest accounts.</p>
 
           <div class="method-source-code" id="get_largest_accounts-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 225</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 226</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_largest_accounts</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getLargestAccounts&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -870,7 +870,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The latest blockhash.</p>
 
           <div class="method-source-code" id="get_latest_blockhash-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 234</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 235</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_latest_blockhash</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getLatestBlockhash&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -895,7 +895,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The leader schedule.</p>
 
           <div class="method-source-code" id="get_leader_schedule-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 243</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 244</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_leader_schedule</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getLeaderSchedule&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -920,7 +920,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The maximum retransmit slot.</p>
 
           <div class="method-source-code" id="get_max_retransmit_slot-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 252</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 253</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_max_retransmit_slot</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getMaxRetransmitSlot&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -945,7 +945,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The maximum shred insert slot.</p>
 
           <div class="method-source-code" id="get_max_shred_insert_slot-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 261</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 262</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_max_shred_insert_slot</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getMaxShredInsertSlot&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -970,7 +970,7 @@
 <p>@param [Integer] data_length The length of the data in bytes. @param [Hash] options Optional parameters for the request. @return [Integer] The minimum balance for rent exemption.</p>
 
           <div class="method-source-code" id="get_minimum_balance_for_rent_exemption-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 271</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 272</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_minimum_balance_for_rent_exemption</span>(<span class="ruby-identifier">data_length</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getMinimumBalanceForRentExemption&#39;</span>, [<span class="ruby-identifier">data_length</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -995,7 +995,7 @@
 <p>@param [Array&lt;String&gt;] pubkeys The list of public keys. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The information for the accounts.</p>
 
           <div class="method-source-code" id="get_multiple_accounts-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 281</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 282</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_multiple_accounts</span>(<span class="ruby-identifier">pubkeys</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getMultipleAccounts&#39;</span>, [<span class="ruby-identifier">pubkeys</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1020,7 +1020,7 @@
 <p>@param [String] pubkey The public key of the program. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The information for the program accounts.</p>
 
           <div class="method-source-code" id="get_program_accounts-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 291</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 292</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_program_accounts</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getProgramAccounts&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1045,7 +1045,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The recent performance samples.</p>
 
           <div class="method-source-code" id="get_recent_performance_samples-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 300</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 301</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_recent_performance_samples</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getRecentPerformanceSamples&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1070,7 +1070,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The recent prioritization fees.</p>
 
           <div class="method-source-code" id="get_recent_prioritization_fees-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 309</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 310</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_recent_prioritization_fees</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getRecentPrioritizationFees&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1095,7 +1095,7 @@
 <p>@param [Array&lt;String&gt;] signatures The list of transaction signatures. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The status of the transaction signatures.</p>
 
           <div class="method-source-code" id="get_signature_statuses-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 319</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 320</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_signature_statuses</span>(<span class="ruby-identifier">signatures</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getSignatureStatuses&#39;</span>, [<span class="ruby-identifier">signatures</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1120,7 +1120,7 @@
 <p>@param [String] address The address for which to retrieve signatures. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The signatures for the address.</p>
 
           <div class="method-source-code" id="get_signatures_for_address-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 329</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 330</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_signatures_for_address</span>(<span class="ruby-identifier">address</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getSignaturesForAddress&#39;</span>, [<span class="ruby-identifier">address</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1145,7 +1145,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The current slot.</p>
 
           <div class="method-source-code" id="get_slot-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 338</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 339</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_slot</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getSlot&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1170,7 +1170,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [String] The current slot leader.</p>
 
           <div class="method-source-code" id="get_slot_leader-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 347</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 348</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_slot_leader</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getSlotLeader&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1195,7 +1195,7 @@
 <p>@param [Integer] start_slot The start slot number. @param [Integer] limit The maximum number of leaders to return. @param [Hash] options Optional parameters for the request. @return [Array&lt;String&gt;] The slot leaders.</p>
 
           <div class="method-source-code" id="get_slot_leaders-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 358</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 359</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_slot_leaders</span>(<span class="ruby-identifier">start_slot</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getSlotLeaders&#39;</span>, [<span class="ruby-identifier">start_slot</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1220,7 +1220,7 @@
 <p>@param [String] pubkey The public key of the stake account. @param [Hash] options Optional parameters for the request. @return [Hash] The stake activation information.</p>
 
           <div class="method-source-code" id="get_stake_activation-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 368</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 369</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_stake_activation</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getStakeActivation&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1245,7 +1245,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The minimum delegation.</p>
 
           <div class="method-source-code" id="get_stake_minimum_delegation-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 377</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 378</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_stake_minimum_delegation</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getStakeMinimumDelegation&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1270,7 +1270,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The supply information.</p>
 
           <div class="method-source-code" id="get_supply-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 386</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 387</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_supply</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getSupply&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1295,7 +1295,7 @@
 <p>@param [String] pubkey The public key of the token account. @param [Hash] options Optional parameters for the request. @return [Hash] The token balance.</p>
 
           <div class="method-source-code" id="get_token_account_balance-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 396</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 397</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_token_account_balance</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTokenAccountBalance&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1320,7 +1320,7 @@
 <p>@param [String] delegate The delegate address. @param [Hash] opts Additional options for the request. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The token accounts by delegate.</p>
 
           <div class="method-source-code" id="get_token_accounts_by_delegate-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 407</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 408</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_token_accounts_by_delegate</span>(<span class="ruby-identifier">delegate</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTokenAccountsByDelegate&#39;</span>, [<span class="ruby-identifier">delegate</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1345,7 +1345,7 @@
 <p>@param [String] owner The owner address. @param [Hash] opts Additional options for the request. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The token accounts by owner.</p>
 
           <div class="method-source-code" id="get_token_accounts_by_owner-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 418</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 419</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_token_accounts_by_owner</span>(<span class="ruby-identifier">owner</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTokenAccountsByOwner&#39;</span>, [<span class="ruby-identifier">owner</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1370,7 +1370,7 @@
 <p>@param [String] pubkey The public key of the token. @param [Hash] options Optional parameters for the request. @return [Array&lt;Hash&gt;] The largest accounts for the token.</p>
 
           <div class="method-source-code" id="get_token_largest_accounts-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 428</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 429</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_token_largest_accounts</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTokenLargestAccounts&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1395,7 +1395,7 @@
 <p>@param [String] pubkey The public key of the token. @param [Hash] options Optional parameters for the request. @return [Hash] The token supply.</p>
 
           <div class="method-source-code" id="get_token_supply-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 438</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 439</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_token_supply</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTokenSupply&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1420,7 +1420,7 @@
 <p>@param [String] signature The transaction signature. @param [Hash] options Optional parameters for the request. @return [Hash] The transaction details.</p>
 
           <div class="method-source-code" id="get_transaction-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 448</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 449</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_transaction</span>(<span class="ruby-identifier">signature</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTransaction&#39;</span>, [<span class="ruby-identifier">signature</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1445,7 +1445,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The total number of transactions.</p>
 
           <div class="method-source-code" id="get_transaction_count-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 457</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 458</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_transaction_count</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getTransactionCount&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1470,7 +1470,7 @@
 <p>@return [Hash] The current version information.</p>
 
           <div class="method-source-code" id="get_version-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 465</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 466</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_version</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getVersion&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1495,7 +1495,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Hash] The list of vote accounts.</p>
 
           <div class="method-source-code" id="get_vote_accounts-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 474</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 475</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_vote_accounts</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;getVoteAccounts&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1520,7 +1520,7 @@
 <p>@param [String] blockhash The blockhash to check. @param [Hash] options Optional parameters for the request. @return [Boolean] Whether the blockhash is valid.</p>
 
           <div class="method-source-code" id="is_blockhash_valid-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 484</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 485</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">is_blockhash_valid</span>(<span class="ruby-identifier">blockhash</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;isBlockhashValid&#39;</span>, [<span class="ruby-identifier">blockhash</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1545,7 +1545,7 @@
 <p>@param [String, Hash] filter The filter for log messages (e.g., a public key or a set of options). @param [Hash] options Optional parameters for the subscription. @yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="logs_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 570</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 571</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logs_subscribe</span>(<span class="ruby-identifier">filter</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;logsSubscribe&#39;</span>, [<span class="ruby-identifier">filter</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1570,7 +1570,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="logs_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 579</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 580</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logs_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;logsUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1595,7 +1595,7 @@
 <p>@param [Hash] options Optional parameters for the request. @return [Integer] The minimum ledger slot.</p>
 
           <div class="method-source-code" id="minimum_ledger_slot-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 493</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 494</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">minimum_ledger_slot</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;minimumLedgerSlot&#39;</span>, [<span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1620,7 +1620,7 @@
 <p>@param [String] pubkey The public key of the program. @param [Hash] options Optional parameters for the subscription. @yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="program_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 589</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 590</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">program_subscribe</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;programSubscribe&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1645,7 +1645,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="program_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 598</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 599</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">program_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;programUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1670,7 +1670,7 @@
 <p>@param [String] pubkey The public key to receive the airdrop. @param [Integer] lamports The amount of lamports to airdrop. @param [Hash] options Optional parameters for the request. @return [Hash] The airdrop request response.</p>
 
           <div class="method-source-code" id="request_airdrop-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 504</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 505</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">request_airdrop</span>(<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">lamports</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;requestAirdrop&#39;</span>, [<span class="ruby-identifier">pubkey</span>, <span class="ruby-identifier">lamports</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1695,7 +1695,7 @@
 <p>@yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="root_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 606</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 607</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">root_subscribe</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;rootSubscribe&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1720,7 +1720,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="root_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 615</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 616</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">root_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;rootUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1745,7 +1745,7 @@
 <p>@param [Hash] transaction The transaction to send. @return [Hash] The response from the send transaction request.</p>
 
           <div class="method-source-code" id="send_transaction-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 513</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 514</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_transaction</span>(<span class="ruby-identifier">transaction</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;sendTransaction&#39;</span>, [<span class="ruby-identifier">transaction</span>.<span class="ruby-identifier">to_json</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1770,7 +1770,7 @@
 <p>@param [String] signature The signature to monitor. @param [Hash] options Optional parameters for the subscription. @yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="signature_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 625</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 626</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">signature_subscribe</span>(<span class="ruby-identifier">signature</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;signatureSubscribe&#39;</span>, [<span class="ruby-identifier">signature</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1795,7 +1795,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="signature_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 634</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 635</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">signature_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;signatureUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1820,7 +1820,7 @@
 <p>@param [Hash] transaction The transaction to simulate. @param [Hash] options Optional parameters for the request. @return [Hash] The simulation response.</p>
 
           <div class="method-source-code" id="simulate_transaction-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 523</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 524</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">simulate_transaction</span>(<span class="ruby-identifier">transaction</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_http</span>(<span class="ruby-string">&#39;simulateTransaction&#39;</span>, [<span class="ruby-identifier">transaction</span>.<span class="ruby-identifier">to_json</span>, <span class="ruby-identifier">options</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1845,7 +1845,7 @@
 <p>@yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="slot_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 642</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 643</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slot_subscribe</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;slotSubscribe&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1870,7 +1870,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="slot_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 651</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 652</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slot_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;slotUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1895,7 +1895,7 @@
 <p>@yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="slots_updates_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 659</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 660</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slots_updates_subscribe</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;slotsUpdatesSubscribe&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1920,7 +1920,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="slots_updates_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 668</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 669</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slots_updates_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;slotsUpdatesUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1945,7 +1945,7 @@
 <p>@yield [Object] The response from the subscription.</p>
 
           <div class="method-source-code" id="vote_subscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 676</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 677</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vote_subscribe</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;voteSubscribe&#39;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1970,7 +1970,7 @@
 <p>@param [Integer] subscription_id The subscription ID. @yield [Object] The response from the unsubscription.</p>
 
           <div class="method-source-code" id="vote_unsubscribe-source">
-            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 685</span>
+            <pre><span class="ruby-comment"># File lib/solana-ruby/client.rb, line 686</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vote_unsubscribe</span>(<span class="ruby-identifier">subscription_id</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">request_ws</span>(<span class="ruby-string">&#39;voteUnsubscribe&#39;</span>, [<span class="ruby-identifier">subscription_id</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
