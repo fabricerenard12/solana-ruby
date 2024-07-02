@@ -82,19 +82,18 @@ module Solana
     # @param [Integer] slot_number The slot number of the block.
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The estimated production time in seconds.
-    def get_block_time(slot_number, options = {}, &block)
-      request_http('getBlockTime', [slot_number, options], &block)
+    def get_block_time(slot_number, &block)
+      request_http('getBlockTime', [slot_number], &block)
     end
 
     ##
     # Retrieves a list of confirmed blocks between two slot numbers.
     #
     # @param [Integer] start_slot The start slot number.
-    # @param [Integer] end_slot The end slot number.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Integer>] The list of confirmed blocks.
-    def get_blocks(start_slot, end_slot, options = {}, &block)
-      request_http('getBlocks', [start_slot, end_slot, options], &block)
+    def get_blocks(start_slot, options = {}, &block)
+      request_http('getBlocks', [start_slot, options], &block)
     end
 
     ##
@@ -111,10 +110,9 @@ module Solana
     ##
     # Retrieves the list of cluster nodes.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The list of cluster nodes.
-    def get_cluster_nodes(options = {}, &block)
-      request_http('getClusterNodes', [options], &block)
+    def get_cluster_nodes(&block)
+      request_http('getClusterNodes', &block)
     end
 
     ##
@@ -129,10 +127,9 @@ module Solana
     ##
     # Retrieves the epoch schedule.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The epoch schedule.
-    def get_epoch_schedule(options = {}, &block)
-      request_http('getEpochSchedule', [options], &block)
+    def get_epoch_schedule(&block)
+      request_http('getEpochSchedule', &block)
     end
 
     ##
@@ -148,46 +145,41 @@ module Solana
     ##
     # Retrieves the slot of the first available block.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The slot of the first available block.
-    def get_first_available_block(options = {}, &block)
-      request_http('getFirstAvailableBlock', [options], &block)
+    def get_first_available_block(&block)
+      request_http('getFirstAvailableBlock', &block)
     end
 
     ##
     # Retrieves the genesis hash.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [String] The genesis hash.
-    def get_genesis_hash(options = {}, &block)
-      request_http('getGenesisHash', [options], &block)
+    def get_genesis_hash(&block)
+      request_http('getGenesisHash', &block)
     end
 
     ##
     # Checks the health of the node.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [String] The health status of the node.
-    def get_health(options = {}, &block)
-      request_http('getHealth', [options], &block)
+    def get_health(&block)
+      request_http('getHealth', &block)
     end
 
     ##
     # Retrieves the highest snapshot slot.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The highest snapshot slot.
-    def get_highest_snapshot_slot(options = {}, &block)
-      request_http('getHighestSnapshotSlot', [options], &block)
+    def get_highest_snapshot_slot(&block)
+      request_http('getHighestSnapshotSlot', &block)
     end
 
     ##
     # Retrieves the identity of the node.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The identity information of the node.
-    def get_identity(options = {}, &block)
-      request_http('getIdentity', [options], &block)
+    def get_identity(&block)
+      request_http('getIdentity', &block)
     end
 
     ##
@@ -202,10 +194,9 @@ module Solana
     ##
     # Retrieves the current inflation rate.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The inflation rate.
-    def get_inflation_rate(options = {}, &block)
-      request_http('getInflationRate', [options], &block)
+    def get_inflation_rate(&block)
+      request_http('getInflationRate', &block)
     end
 
     ##
@@ -236,31 +227,30 @@ module Solana
       request_http('getLatestBlockhash', [options], &block)
     end
 
+    ## TODO
     ##
     # Retrieves the leader schedule.
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The leader schedule.
-    def get_leader_schedule(options = {}, &block)
-      request_http('getLeaderSchedule', [options], &block)
+    def get_leader_schedule(slot_number = nil, options = {}, &block)
+      request_http('getLeaderSchedule', [slot_number, options], &block)
     end
 
     ##
     # Retrieves the maximum retransmit slot.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The maximum retransmit slot.
-    def get_max_retransmit_slot(options = {}, &block)
-      request_http('getMaxRetransmitSlot', [options], &block)
+    def get_max_retransmit_slot(&block)
+      request_http('getMaxRetransmitSlot', &block)
     end
 
     ##
     # Retrieves the maximum shred insert slot.
     #
-    # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The maximum shred insert slot.
-    def get_max_shred_insert_slot(options = {}, &block)
-      request_http('getMaxShredInsertSlot', [options], &block)
+    def get_max_shred_insert_slot(&block)
+      request_http('getMaxShredInsertSlot', &block)
     end
 
     ##
@@ -298,8 +288,8 @@ module Solana
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The recent performance samples.
-    def get_recent_performance_samples(options = {}, &block)
-      request_http('getRecentPerformanceSamples', [options], &block)
+    def get_recent_performance_samples(limit = 720, options = {}, &block)
+      request_http('getRecentPerformanceSamples', [limit, options], &block)
     end
 
     ##
@@ -307,8 +297,8 @@ module Solana
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The recent prioritization fees.
-    def get_recent_prioritization_fees(options = {}, &block)
-      request_http('getRecentPrioritizationFees', [options], &block)
+    def get_recent_prioritization_fees(addresses = [], &block)
+      request_http('getRecentPrioritizationFees', [addresses], &block)
     end
 
     ##
@@ -420,6 +410,7 @@ module Solana
       request_http('getTokenAccountsByOwner', [owner, opts, options], &block)
     end
 
+    ## TODO
     ##
     # Retrieves the largest accounts for a given token.
     #
@@ -491,8 +482,8 @@ module Solana
     #
     # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The minimum ledger slot.
-    def minimum_ledger_slot(options = {}, &block)
-      request_http('minimumLedgerSlot', [options], &block)
+    def minimum_ledger_slot(&block)
+      request_http('minimumLedgerSlot', &block)
     end
 
     ##
@@ -510,9 +501,10 @@ module Solana
     # Sends a transaction.
     #
     # @param [Hash] transaction The transaction to send.
+    # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The response from the send transaction request.
-    def send_transaction(transaction, &block)
-      request_http('sendTransaction', [transaction.to_json], &block)
+    def send_transaction(transaction, options = {}, &block)
+      request_http('sendTransaction', [transaction.to_json, options], &block)
     end
 
     ##
@@ -549,8 +541,8 @@ module Solana
     #
     # @param [Hash] options Optional parameters for the subscription.
     # @yield [Object] The response from the subscription.
-    def block_subscribe(options = {}, &block)
-      request_ws('blockSubscribe', [options], &block)
+    def block_subscribe(filter, options = {}, &block)
+      request_ws('blockSubscribe', [filter, options], &block)
     end
 
     ##
