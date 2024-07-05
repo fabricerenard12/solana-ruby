@@ -12,9 +12,8 @@ module Solana
     ##
     # Initializes a new Client.
     #
-    # @param [String, nil] api_key Optional API key for authentication.
-    def initialize(api_endpoint = Solana::Utils::MAINNET, api_key = nil)
-      @api_key = api_key
+    # @param [String, nil] api_endpoint Optional API endpoint. Mainnet by default
+    def initialize(api_endpoint = Solana::Utils::MAINNET)
       @api_endpoint = api_endpoint
     end
 
@@ -80,7 +79,6 @@ module Solana
     # Retrieves the estimated production time of a specific block.
     #
     # @param [Integer] slot_number The slot number of the block.
-    # @param [Hash] options Optional parameters for the request.
     # @return [Integer] The estimated production time in seconds.
     def get_block_time(slot_number, &block)
       request_http('getBlockTime', [slot_number], &block)
@@ -286,6 +284,7 @@ module Solana
     ##
     # Retrieves recent performance samples.
     #
+    # @param [Integer] limit The number of performance samples to retrieve.
     # @param [Hash] options Optional parameters for the request.
     # @return [Array<Hash>] The recent performance samples.
     def get_recent_performance_samples(limit = 720, options = {}, &block)
@@ -295,7 +294,7 @@ module Solana
     ##
     # Retrieves recent prioritization fees.
     #
-    # @param [Hash] options Optional parameters for the request.
+    # @param [Array<String>] addresses Optional array of addresses to filter the fees by.
     # @return [Hash] The recent prioritization fees.
     def get_recent_prioritization_fees(addresses = [], &block)
       request_http('getRecentPrioritizationFees', [addresses], &block)
@@ -410,7 +409,6 @@ module Solana
       request_http('getTokenAccountsByOwner', [owner, opts, options], &block)
     end
 
-    ## TODO
     ##
     # Retrieves the largest accounts for a given token.
     #
