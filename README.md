@@ -3,6 +3,10 @@
 
 Solana-Ruby is a Ruby SDK for interacting with the Solana blockchain. It allows you to easily make requests to the Solana network from your Ruby applications.
 
+## TODO
+- Add more unit testing
+- Implement basic transactions in the library (this should be done for 2025)
+
 ## Installation
 
 Add this line to your application's Gemfile:
