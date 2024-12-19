@@ -356,7 +356,8 @@ module Solana
     # @param [Hash] options Optional parameters for the request.
     # @return [Hash] The stake activation information.
     def get_stake_activation(pubkey, options = {}, &block)
-      request_http('getStakeActivation', [pubkey, options], &block)
+      warn "[DEPRECATION] Deprecated since RPC v2.0; use solana-rpc-client-extensions on github."
+      #request_http('getStakeActivation', [pubkey, options], &block)
     end
 
     ##
